@@ -1,0 +1,7 @@
+{
+  "name": "contactsApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

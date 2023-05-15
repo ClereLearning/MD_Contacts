@@ -1,11 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Contacts
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Enter Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" placeholder="Enter name" required>        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone number</ion-label>
+      <ion-input type="text" [(ngModel)]="phone" placeholder="Enter phone number" required>        
+      </ion-input>
+    </ion-item>
+    <div class="ion-float-right">
+      <ion-button (click)="setStorage()">Set storage data</ion-button>
+      <ion-button color="tertiary" (click)="getStorage()">Get storage data</ion-button>
+      <ion-button color="tertiary" (click)="clearStorage()">Clear storage</ion-button>
+    </div>
+  </ion-list>
+
+  <!--<ion-item>
+    Get LocalStorage string name: {{StorageName}}
+  </ion-item>
+  <ion-item *ngFor="let p of person; trackBy:trackItems">
+    Get LocalStorage JSON person: {{p.name}} : {{p.phone}}
+  </ion-item>
+  -->
+  <ion-item>
+    Get LocalStorage JSON person: {{person.name}} : {{person.phone}}
+  </ion-item>
+
+</ion-content>
+
+<!--
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -18,3 +51,4 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
+-->

@@ -18,4 +18,9 @@ export class HomePage {
     this.navCtrl.navigateForward(['contacts']);
   }
 
+  gotoCountries()
+  {
+    this.navCtrl.navigateForward(['countries']);
+  }
+
   }

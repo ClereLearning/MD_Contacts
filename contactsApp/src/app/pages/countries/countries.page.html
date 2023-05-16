@@ -10,4 +10,8 @@
       <ion-title size="large">countries</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button (click)="gotoHome()">Home</ion-button>
+    <ion-item *ngFor="let item of infoCountries">
+testing    {{item.capital}}   
+  </ion-item>  
 </ion-content>

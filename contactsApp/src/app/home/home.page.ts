@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StorageService } from './services/storage.services';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,39 +8,14 @@ import { StorageService } from './services/storage.services';
 })
 
 export class HomePage {
-  person = {name:'', phone:''};
-  name!: string;
-  storageName!: string;
-  phone!: string;
+  
+  constructor(   
+    private navCtrl : NavController
+  ) {}  
 
-
-  constructor(
-    private storage: StorageService
-  ) {}
-
-  setStorage() {
-    this.storage.setString('name',this.name);
-    this.storage.setObject('person', {
-      name: this.name,
-      phone: this.phone
-    });
+  gotoContacts()
+  {
+    this.navCtrl.navigateForward(['contacts']);
   }
 
-  getStorage() {
-   
-    this.storage.getString('name').then((data:any)=>{
-      if (data.value){
-        this.storageName = data.value;
-      }
-    });
-
-    this.storage.getObject('person').then((data: any)=>{
-      this.person = data;
-    });
-        
-  }
-
-    clearStorage() {
-      this.storage.clear();
-    } 
   }

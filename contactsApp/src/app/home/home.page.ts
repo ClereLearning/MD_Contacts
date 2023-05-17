@@ -23,4 +23,9 @@ export class HomePage {
     this.navCtrl.navigateForward(['countries']);
   }
 
+  gotoAbout()
+  {
+    this.navCtrl.navigateForward(['about']);
+  }
+
   }

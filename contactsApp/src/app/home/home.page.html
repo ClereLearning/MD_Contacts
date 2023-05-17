@@ -11,11 +11,23 @@
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>    
-  </ion-header>
-<ion-button (click)="gotoContacts()"> Contacts</ion-button>
-<ion-button (click)="gotoCountries()"> Let's learn</ion-button>
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </ion-header>  
+
+  <div id="container">    
+    <ion-list class="ion-padding">
+      <ion-item>      
+        <ion-button (click)="gotoContacts()"> Student Contact</ion-button>
+      </ion-item>
+      <ion-item> 
+        <ion-button (click)="gotoCountries()"> Let's learn Europe countries</ion-button>
+      </ion-item>    
+    </ion-list>
+    <ion-item> 
+      <ion-button (click)="gotoAbout()"> About</ion-button>
+    </ion-item>
+    <p>
+      <img src="../assets/images/269183-P5HPR8-820.jpg" width="20%"  height="20%"/>
+    </p>
+    <p> The image above was <a target="_blank" rel="noopener noreferrer" href="http://www.freepik.com">Designed by Freepik</a></p>
   </div>
 </ion-content>

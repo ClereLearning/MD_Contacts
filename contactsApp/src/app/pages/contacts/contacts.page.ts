@@ -13,10 +13,10 @@ export class ContactsPage implements OnInit {
   ngOnInit() {
   }
 
-  person = {name:'', phone:''};
+  student = {name:'', email:''};
   name!: string;
   storageName!: string;
-  phone!: string;
+  email!: string;
 
 
   constructor(
@@ -26,9 +26,9 @@ export class ContactsPage implements OnInit {
 
   setStorage() {
     this.storage.setString('name',this.name);
-    this.storage.setObject('person', {
+    this.storage.setObject('student', {
       name: this.name,
-      phone: this.phone
+      email: this.email
     });
   }
 
@@ -44,8 +44,8 @@ export class ContactsPage implements OnInit {
       }
     });
 
-    this.storage.getObject('person').then((data: any)=>{
-      this.person = data;
+    this.storage.getObject('student').then((data: any)=>{
+      this.student = data;
     });
         
   }

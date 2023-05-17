@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>contacts</ion-title>
+    <ion-title>Student - Contact information</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,31 +15,39 @@
 <ion-content class="ion-padding">  
   <ion-list>
     <ion-item>
-      <ion-label position="floating">Enter Name</ion-label>
+      <ion-label position="floating">Name</ion-label>
       <ion-input type="text" [(ngModel)]="name" placeholder="Enter name" required>        
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Phone number</ion-label>
-      <ion-input type="text" [(ngModel)]="phone" placeholder="Enter phone number" required>        
-      </ion-input>
+      <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="text" [(ngModel)]="email" placeholder="Enter email" required>                   
+      </ion-input>      
     </ion-item> 
     <div class="ion-float-right">
-      <ion-button (click)="setStorage()">Set storage data</ion-button>
-      <ion-button color="tertiary" (click)="getStorage()">Get storage data</ion-button>
-      <ion-button color="tertiary" (click)="clearStorage()">Clear storage</ion-button>
+      <ion-button (click)="setStorage()">Save</ion-button>
+      <ion-button (click)="getStorage()">View</ion-button>
+      <ion-button (click)="clearStorage()">Clear Information</ion-button>
     </div>
   </ion-list>
 
-  <!--<ion-item>
-    Get LocalStorage string name: {{StorageName}}
-  </ion-item>
-  <ion-item *ngFor="let p of person; trackBy:trackItems">
-    Get LocalStorage JSON person: {{p.name}} : {{p.phone}}
-  </ion-item>
-  -->
   <ion-item>
-    Get LocalStorage JSON person: {{person.name}} : {{person.phone}}
+    <ion-grid>
+      <ion-row>        
+        <ion-col size="12" size-md="3" > 
+          Your informations:
+        </ion-col>
+      </ion-row>
+      <ion-row>        
+          <ion-col size="12" size-md="3" >  
+              {{student.name}}
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-md="3" >  
+            {{student.email}}
+        </ion-col>
+    </ion-row>
+    </ion-grid>  
   </ion-item>
-
 </ion-content>

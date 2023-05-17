@@ -1,7 +1,7 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavController, InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { CountriesService } from 'src/app/services/countries.service'; // to utilize the service for get countries from api
+import { StorageService } from 'src/app/home/services/storage.services';
 
 @Component({
   selector: 'app-countries',
@@ -15,6 +15,7 @@ export class CountriesPage implements OnInit {
      private navCtrl: NavController // navigation between pages
     , private countriesService : CountriesService // to get api rest
     , private loadingCtrl : LoadingController // to display loading message while page is not ready 
+    , private storage: StorageService // to get student information
     ) {
     
    }
@@ -22,13 +23,32 @@ export class CountriesPage implements OnInit {
   ngOnInit() 
   {
     this.getCountries();
-    //console.log(this.infoCountries); 
+    this.getStudentInfo();
   }
 
+  student = {name:'', email:''};
+  name!: string;
+  storageName!: string;
+  email!: string;
+
+ 
   // navigate to the home page
   gotoHome()
   {
     this.navCtrl.navigateForward(['home']);
+  }
+
+  getStudentInfo(){
+    this.storage.getString('name').then((data:any)=>{
+      if (data.value){
+        this.storageName = data.value;
+      }
+    });
+
+    this.storage.getObject('student').then((data: any)=>{
+      this.student = data;
+    });
+
   }
 
   async getCountries(event?: InfiniteScrollCustomEvent )

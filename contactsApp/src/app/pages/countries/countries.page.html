@@ -1,17 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>countries</ion-title>
+    <ion-title> Learning Europe countries</ion-title>    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+
+<ion-content [fullscreen]="true">  
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">countries</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>    
+  
   <ion-button (click)="gotoHome()">Home</ion-button>
-    <ion-item *ngFor="let item of infoCountries">
+
+  <ion-list class="ion-padding">
+    <ion-item>      
+      <ion-label >Hello {{student.name}} </ion-label>
+    </ion-item>
+    <ion-item>      
+      <ion-label> below there are Euro countries try to memorize it</ion-label>
+    </ion-item>
+  </ion-list>
+    
+  
+  
+  <ion-card *ngFor="let item of infoCountries">    
+    <ion-card-header>
+      <ion-card-title>{{item.name.common}}</ion-card-title>
+      <ion-card-subtitle>{{item.capital}}</ion-card-subtitle>      
+    </ion-card-header>
+    <ion-card-content>
+      <img src={{item.flags.png}} alt="image flag from {{item.name.common}}"  width="10%"  height="10%" />
+    </ion-card-content>
+  </ion-card>
+  
+   <!-- <ion-item *ngFor="let item of infoCountries">
 testing    {{item.capital}}   
   </ion-item>  
+  -->
 </ion-content>

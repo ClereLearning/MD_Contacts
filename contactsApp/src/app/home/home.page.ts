@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular'; // to navigate between pages
 
 @Component({
   selector: 'app-home',
@@ -9,23 +9,26 @@ import { NavController } from '@ionic/angular';
 
 export class HomePage {
   
-  constructor(   
-    private navCtrl : NavController
-  ) {}  
+      constructor(   
+        private navCtrl : NavController
+      ) {}  
 
-  gotoContacts()
-  {
-    this.navCtrl.navigateForward(['contacts']);
-  }
+      // to navigate to student contact page
+      gotoContacts()
+      {
+        this.navCtrl.navigateForward(['contacts']);
+      }
 
-  gotoCountries()
-  {
-    this.navCtrl.navigateForward(['countries']);
-  }
+      // to navigate to countries page
+      gotoCountries()
+      {
+        this.navCtrl.navigateForward(['countries']);
+      }
 
-  gotoAbout()
-  {
-    this.navCtrl.navigateForward(['about']);
-  }
+      //to navigate to about page
+      gotoAbout()
+      {
+        this.navCtrl.navigateForward(['about']);
+      }
 
   }

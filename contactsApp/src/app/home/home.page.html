@@ -7,26 +7,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-header collapse="condense">
+  <ion-header >
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="small">EuroGeo - European Countries and Its Capital Names</ion-title>
     </ion-toolbar>    
   </ion-header>  
+<!--
+  functions goto about navigation between pages
+-->
 
-  <div id="container">    
-    <ion-list class="ion-padding">
-      <ion-item>      
-        <ion-button (click)="gotoContacts()"> Student Contact</ion-button>
-      </ion-item>
-      <ion-item> 
-        <ion-button (click)="gotoCountries()"> Let's learn Europe countries</ion-button>
-      </ion-item>    
-    </ion-list>
+  <div id="container">      
     <ion-item> 
-      <ion-button (click)="gotoAbout()"> About</ion-button>
     </ion-item>
+    <ion-item> 
+    </ion-item>
+    <ion-item> 
+    </ion-item>
+    <ion-item> 
+      <ion-grid>
+        <ion-row>
+          <ion-col> <ion-button (click)="gotoContacts()"> Student Contact</ion-button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-button (click)="gotoCountries()"> Let's learn</ion-button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-button (click)="gotoAbout()"> About</ion-button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <!-- utilizing image below is from freepik.com which is free but the credits have to be referenced  -->
     <p>
-      <img src="../assets/images/269183-P5HPR8-820.jpg" width="40%"  height="40%"/>
+      <img src="../assets/images/269183-P5HPR8-820.jpg" width="30%"  height="30%"/>
     </p>
     <i> The image above was <a target="_blank" rel="noopener noreferrer" href="http://www.freepik.com">Designed by Freepik</a></i>
   </div>

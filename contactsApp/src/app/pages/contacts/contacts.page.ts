@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentStorage } from 'src/app/home/services/studentstorage.services';
-import { NavController } from '@ionic/angular';
+import { StudentStorage } from 'src/app/home/services/studentstorage.services'; // to utilize the local Storage
+import { NavController } from '@ionic/angular'; // to navigate between pages
 
 @Component({
   selector: 'app-contacts',

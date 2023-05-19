@@ -70,16 +70,11 @@ export class CountriesPage implements OnInit {
         this.infoCountries.push(...resJson); // adding to array
         //console.log(this.infoCountries); // testing
                        
-        event?.target.complete(); 
+        event?.target.complete(); // if the api get the json 
         if(event){
-          event.target.disabled = true;          
+          event.target.disabled = true;   //finalizing loading       
         }
-      }
-      /*,
-      (err)=>{
-        console.log(err);
-        loadingIt.dismiss();
-      }*/
+      }   
     );        
      
   }

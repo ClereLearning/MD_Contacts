@@ -15,6 +15,7 @@
   
   <ion-button (click)="gotoHome()">Home</ion-button>
 
+  <!-- getting student name from Storage -->
   <ion-list class="ion-padding">
     <ion-item>      
       <ion-label >Hello {{student.name}} </ion-label>
@@ -25,7 +26,7 @@
   </ion-list>
     
   
-  
+  <!-- getting information from country -->
   <ion-card *ngFor="let item of infoCountries">    
     <ion-card-header>
       <ion-card-title>{{item.name.common}}</ion-card-title>
@@ -35,9 +36,4 @@
       <img src={{item.flags.png}} alt="image flag from {{item.name.common}}"  width="10%"  height="10%" />
     </ion-card-content>
   </ion-card>
-  
-   <!-- <ion-item *ngFor="let item of infoCountries">
-testing    {{item.capital}}   
-  </ion-item>  
-  -->
 </ion-content>

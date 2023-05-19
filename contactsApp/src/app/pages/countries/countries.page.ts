@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { CountriesService } from 'src/app/services/countries.service'; // to utilize the service for get countries from api
-import { StorageService } from 'src/app/home/services/storage.services';
+import { StudentStorage } from 'src/app/home/services/studentstorage.services'; // to get student info from storage
 
 @Component({
   selector: 'app-countries',
@@ -15,21 +15,21 @@ export class CountriesPage implements OnInit {
      private navCtrl: NavController // navigation between pages
     , private countriesService : CountriesService // to get api rest
     , private loadingCtrl : LoadingController // to display loading message while page is not ready 
-    , private storage: StorageService // to get student information
+    , private storage: StudentStorage // to get student information
     ) {
     
    }
-
+   // starting the page with some infomration
   ngOnInit() 
   {
-    this.getCountries();
+    this.getCountries(); // getting 
     this.getStudentInfo();
   }
 
-  student = {name:'', email:''};
-  name!: string;
-  storageName!: string;
-  email!: string;
+  //Student information
+  student = {name:'', email:''}; // student obj
+  name!: string; // student name
+  email!: string; // student email
 
  
   // navigate to the home page
@@ -38,19 +38,19 @@ export class CountriesPage implements OnInit {
     this.navCtrl.navigateForward(['home']);
   }
 
+  //getting Student information
   getStudentInfo(){
-    this.storage.getString('name').then((data:any)=>{
-      if (data.value){
-        this.storageName = data.value;
-      }
-    });
-
-    this.storage.getObject('student').then((data: any)=>{
-      this.student = data;
+      this.storage.getObject('student').then((data: any)=>{
+        if(data==null){
+          this.student = {name:'', email:''};
+        }else{
+          this.student = data;
+        }
     });
 
   }
 
+  // it is an animation
   async getCountries(event?: InfiniteScrollCustomEvent )
   {
     const loadingIt = await this.loadingCtrl.create({
@@ -59,9 +59,11 @@ export class CountriesPage implements OnInit {
     });
     await loadingIt.present();
 
+    //to get the json from the api - restfull
     this.countriesService.getCountries("subregion/Europe?fields=name,flags,capital").subscribe(
       (res)=> {
-        loadingIt.dismiss();
+        loadingIt.dismiss(); // stoping animagion
+        
         // was not working directly from api
         // I had to convert to stringify and return to json again weird situation
         let resJson =  JSON.parse(JSON.stringify(res));        
@@ -81,7 +83,7 @@ export class CountriesPage implements OnInit {
     );        
      
   }
-
+  // not used, works as a index guide inside in a for loop
   trackItems(index: number, itemObject: any) {
     return itemObject.id;
   }

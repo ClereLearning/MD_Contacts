@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from 'src/app/home/services/storage.services';
+import { StudentStorage } from 'src/app/home/services/studentstorage.services';
 import { NavController } from '@ionic/angular';
-import { HomePage } from 'src/app/home/home.page';
 
 @Component({
   selector: 'app-contacts',
@@ -13,44 +12,58 @@ export class ContactsPage implements OnInit {
   ngOnInit() {
   }
 
-  student = {name:'', email:''};
-  name!: string;
-  storageName!: string;
-  email!: string;
+  student = {name:'', email:''}; // student obj
+  name!: string; // student name
+  email!: string; // student email
 
 
   constructor(
-    private storage: StorageService,
+    private storage: StudentStorage,
     private navCtrl: NavController
   ) {}
-
+  
+  // saving and serializing student object 
   setStorage() {
     this.storage.setString('name',this.name);
     this.storage.setObject('student', {
       name: this.name,
       email: this.email
-    });
+    });    
+    
+    this.getStorage();
+    this.clearForm();
   }
 
+  //to clear the form elements
+  clearForm()
+  {
+    this.name = "";
+    this.email = "";
+  }
+ 
+  // return to the home page
   gotoHome(){
     this.navCtrl.navigateForward(['home']);
   }
 
+  // to get student information from the storage
   getStorage() {
    
-    this.storage.getString('name').then((data:any)=>{
-      if (data.value){
-        this.storageName = data.value;
-      }
-    });
+    this.clearForm();
 
     this.storage.getObject('student').then((data: any)=>{
-      this.student = data;
-    });
-        
+      if(data==null){
+        this.student = {name:'', email:''};
+      }else{
+        this.student = data;
+      }
+    });        
+
+    
   }
 
+  // to clear all saved information from student
     clearStorage() {
-      this.storage.clear();
+      this.storage.clearStorage();      
     } 
   }
